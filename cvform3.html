@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 400px; 
+            max-height: 80vh; 
+            overflow-y: auto; 
+            padding: 60px;
+            border-radius: 0; 
+            width: 400px; 
+            max-height: 80vh; 
+            overflow-y: auto; 
+            transition: border-radius 0.2s ease-in;
+        }
+
+.container:hover {
+    box-shadow: 
+        -10px -10px 15px rgba(176, 176, 182, 0.8),
+        10px -10px 15px rgba(227, 227, 233, 0.8),
+        10px 10px 15px rgba(176, 176, 182, 0.8),
+        -10px 10px 15px rgba(227, 227, 233, 0.8); 
+        
+        border-radius: 25px ; 
+    transition: 1s ease-in-out;
+}
+        
+        .container h2{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input {
+            font-size: 16px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 100%; /* Full width */
+            border: none;
+            border-bottom: 1px solid #515151;
+            background: transparent;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        label {
+            color: #185d8e;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+        }
+
+        .input:focus ~ label, .input:valid ~ label {
+            top: -20px;
+            font-size: 14px;
+            color: #5264AE;
+        }
+
+        .bar {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .bar:before, .bar:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background: #5264AE;
+            transition: 0.2s ease all;
+        }
+
+        .bar:before {
+            left: 50%;
+        }
+
+        .bar:after {
+            right: 50%;
+        }
+
+        .input:focus ~ .bar:before, .input:focus ~ .bar:after {
+            width: 50%;
+        }
+
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100px;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .input:focus ~ .highlight {
+            animation: inputHighlighter 0.3s ease;
+        }
+
+        @keyframes inputHighlighter {
+            from {
+                background: #5264AE;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+
+
+        /* From Uiverse.io by lenfear23 */ 
+        button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    transform: translateX(120px); /* Adjust this value as needed */
+    background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+    border-radius: 30px;
+    border: 1px solid #8F9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+}
+
+
+    button:hover {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+    }
+
+    button:active {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    }
+
+    button:focus {
+    box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+    }
+
+
+h2 {
+color: rgb(4, 4, 4);
+text-decoration: none;
+font-size: 25px;
+border: none;
+background: none;
+font-weight: 600;
+font-family: 'Poppins', sans-serif;
+}
+
+h2::before {
+margin-left: auto;
+}
+
+h2::after, h2::before {
+content: '';
+width: 0%;
+height: 1.8px;
+background: #0151ff;
+display: block;
+transition: 1s;
+}
+
+h2:hover::after, h2:hover::before { 
+width: 100%;
+}
+
+    </style>
+</head>
+<body>
+
+    
+
+    <div class="container">
+        <div class="button__int"></div>
+        <h2>CV Generator</h2>
+        <form id="cvForm">
+            <div class="group">
+                <input required type="text" class="input" id="name" name="name">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="name">Full Name</label>
+            </div>
+
+            <div class="group">
+                <input required type="text" class="input" id="jobTitle" name="jobTitle">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="jobTitle">Job Title Applied For</label>
+            </div>
+
+
+            <div class="group">
+                <input required type="text" class="input" id="address" name="address">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="address">Address</label>
+            </div>
+
+            <div class="group">
+                <input required type="tel" class="input" id="phone" name="phone">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="phone">Phone Number</label>
+            </div>
+
+            <div class="group">
+                <input required type="email" class="input" id="email" name="email">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="email">Email</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="Career" name="Career"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="Career">Career Objective (separate entries with ' ENTER ' )</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="education" name="education"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="education">Education ( exmp: {example} , {example} ,{example} )</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="skills" name="skills"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="skills">Skills ( exmp: {example} , {example} ,{example} )</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="experience" name="experience"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="experience">Professional Experience (separate entries with ' ENTER ')</label>
+            </div>
+            
+            <div class="group">
+                <textarea required class="input" id="achievements" name="achievements"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="achievements">Achievements (separate entries with ' ENTER ' )</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="personalDetails" name="personalDetails"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="personalDetails">Personal Details (separate entries with ' ENTER ' )</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="info" name="info"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="info">Personal information ( Short )</label>
+            </div>
+
+            <div class="group">
+                <textarea required class="input" id="languages" name="languages"></textarea>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="languages">Languages ( exmp: {example} , {example} ,{example} )</label>
+            </div>
+
+            <!-- <div class="group">
+                <input required type="file" class="input" id="profilePic" name="profilePic" accept="image/*">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label for="profilePic" style="margin-left: 250px;"> Passport size </label>
+            </div> -->
+
+            <button type="button" onclick="transferData()" value="Submit CV">
+                Submit
+            </button>
+        </form>
+    </div>
+
+
+    
+    <script>
+        function transferData() {
+    // Save all form data in localStorage
+    localStorage.setItem('name', document.getElementById('name').value);
+    localStorage.setItem('info', document.getElementById('info').value);
+    localStorage.setItem('jobTitle', document.getElementById('jobTitle').value);
+    localStorage.setItem('address', document.getElementById('address').value);
+    localStorage.setItem('phone', document.getElementById('phone').value);
+    localStorage.setItem('email', document.getElementById('email').value);
+    localStorage.setItem('Career', document.getElementById('Career').value);
+    localStorage.setItem('education', document.getElementById('education').value);
+    localStorage.setItem('skills', document.getElementById('skills').value);
+    localStorage.setItem('experience', document.getElementById('experience').value);
+    localStorage.setItem('achievements', document.getElementById('achievements').value);
+    localStorage.setItem('personalDetails', document.getElementById('personalDetails').value);
+    localStorage.setItem('languages', document.getElementById('languages').value);
+
+    // Redirect to cv3.html
+    window.location.href = 'cv3.html';
+}
+
+    </script>
+    
+    
+</body>
+</html>

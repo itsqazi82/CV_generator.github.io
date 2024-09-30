@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Display</title>
+    <style>
+        /* Styles remain the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif; 
+            color: #B9D9DB;
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            width: 21cm;  /* A4 width */
+            height: 29.7cm; /* A4 height */
+            margin: auto;
+            background-color: #1d2232;
+            padding: 20px;
+            border: 0.5px solid white;
+        }
+
+        .left-section {
+            background-color: #27272c;
+            width: 30%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .profile-img {
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid rgb(225, 214, 214);
+        }
+
+        .Address-info, .contact-info, .email-info, .skills, .languages {
+            padding: 10px;
+            background-color: #3A3A3A;
+            border-radius: 8px;
+            line-height: 22px;
+        }
+
+        h3 {
+            color: #77F5FB;
+            margin-bottom: 10px;
+        }
+
+        p {
+            word-wrap: break-word;
+            color: rgb(225, 214, 214);
+        }
+
+        .skills ul, .languages ul {
+            list-style-type: none;
+            padding-left: 0;
+            color: rgb(225, 214, 214);
+        }
+
+        .right-section {
+            width: 70%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00eaf7;
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        h2 {
+            color: #46b4ba;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 14px;
+            color: #77F5FB;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: rgb(225, 214, 214);
+        }
+
+        p, ul {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .Address-info, .email-info p, .contact-info p {
+            word-break: break-all;
+        }
+
+        @media print {
+            body {
+                width: 100%;
+            }
+            .container {
+                border: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+            }
+            .left-section, .right-section {
+                width: 100%;
+            }
+        }
+
+        /* From Uiverse.io by Ayzen-Dev */
+        .button {
+            margin-top: 850px;
+            margin-bottom: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .button a {
+            display: block;
+            height: 50px;
+            width: 200px;
+            background: #00b7ea;
+            color: white;
+            font: 17px/50px Helvetica, Verdana, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+
+        b {
+            background: #222;
+            display: block;
+            height: 40px;
+            width: 180px;
+            margin: -50px 0 0 10px;
+            text-align: center;
+            font: 12px/45px Helvetica, Verdana, sans-serif;
+            color: #fff;
+            position: absolute;
+            z-index: -1;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+        }
+
+        .button:hover .top {
+            margin: -80px 0 0 10px;
+            line-height: 35px;
+        }
+
+        .button:hover .bottom {
+            margin: -10px 0 0 10px;
+        }
+
+        .button a:active {
+            background: #00b7ea;
+        }
+    </style>
+</head>
+<body>
+    <div id="cvContainer" class="container">
+        <div class="left-section">
+            <img id="profilePic" src="" alt="Profile Picture" class="profile-img">
+            <div class="contact-info">
+                <h3>Contact :</h3>
+                <p id="phone"></p>
+            </div>
+            <div class="email-info">
+                <h3>Email :</h3>
+                <p id="email"></p>
+            </div>
+            <div class="Address-info">
+                <h3>Address :</h3>
+                <p id="address"></p>
+            </div>
+            <div class="skills">
+                <h3>Skills :</h3>
+                <ul id="skills">
+                    <!-- Skills list here -->
+                </ul>
+            </div>
+            <div class="languages">
+                <h3>Languages :</h3>
+                <ul id="languages">
+                    <!-- Languages list here -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <h1 id="name"></h1>
+            <h2>Job applied for :</h2>
+            <p id="jobTitle" style="margin-left: 25px; margin-top: 2px; font-size: 18px;"></p>
+            <h2>Career Objective :</h2>
+            <p id="Career"></p>
+            <h2>Achievements :</h2>
+            <p id="achievements"></p>
+            <h2>Professional Experience :</h2>
+            <p id="experience"></p>
+            <h2>Education :</h2>
+            <p id="education"></p>
+            <h2>Personal Details :</h2>
+            <p id="personalDetails"></p>
+        </div>
+    </div>
+
+    <div class="button">
+        <a href="#" id="downloadBtn">Download</a>
+        <b class="top">click to download</b>
+        <b class="bottom">1.2MB .zip</b>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('name').innerText = localStorage.getItem('name');
+        document.getElementById('phone').innerText = localStorage.getItem('phone');
+        document.getElementById('email').innerText = localStorage.getItem('email');
+        document.getElementById('address').innerText = localStorage.getItem('address');
+        document.getElementById('skills').innerText = localStorage.getItem('skills');
+        document.getElementById('languages').innerText = localStorage.getItem('languages');
+        document.getElementById('jobTitle').innerText = localStorage.getItem('jobTitle');
+        document.getElementById('Career').innerText = localStorage.getItem('Career');
+        document.getElementById('achievements').innerText = localStorage.getItem('achievements');
+        document.getElementById('experience').innerText = localStorage.getItem('experience');
+        document.getElementById('education').innerText = localStorage.getItem('education');
+        document.getElementById('personalDetails').innerText = localStorage.getItem('personalDetails');
+
+        const imageSrc = localStorage.getItem('profilePic');
+        if (imageSrc) {
+            document.getElementById('profilePic').setAttribute('src', imageSrc);
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const cvContainer = document.getElementById('cvContainer');
+            html2pdf(cvContainer);
+        });
+    </script>
+</body>
+</html>

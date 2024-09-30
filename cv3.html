@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Al Hashimi CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .cv-header {
+            text-align: center;
+            color: #ff9900;
+            margin-bottom: 20px;
+        }
+
+        .cv-header h1 {
+            font-size: 32px;
+            font-weight: bolder;
+            margin-bottom: 5px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .cv-header p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Adjust spacing as needed */
+            margin-bottom: 10px;
+        }
+
+        .contact p::before {
+            content: "◆";
+            color: #ffaa00;
+            padding-right: 10px;
+        }
+
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+
+        a {
+            color: #c26929;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section-title h2 {
+            font-size: 20px;
+            color: #c26929;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+        }
+
+        .section-title p::before{
+            content: "◆";
+            color: #ffaa00;
+            padding-right: 10px;
+        }
+
+        .work-entry h3, .work-entry h4 {
+            margin-bottom: 5px;
+        }
+
+        .work-entry ul {
+            list-style: none;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .work-entry p::before{
+            content: "◆";
+            color: #ffaa00;
+            padding-right: 10px;
+        }
+
+
+        .work-entry li::before {
+            content: "◆";
+            color: #ffaa00;
+            padding-right: 10px;
+        }
+
+        .skills li {
+            flex: 1 1 45%;
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .skills li::before {
+            content: "◆";
+            color: #ffaa00;
+            padding-right: 10px;
+        }
+
+        .education p {
+            margin-bottom: 5px;
+        }
+
+        h2, h3, h4, p {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .two-columns {
+                flex-direction: column;
+            }
+        }
+
+
+        /* From Uiverse.io by Ayzen-Dev */ 
+.button {
+    margin-top: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.button a {
+  display: block;
+  height: 50px;
+  width: 200px;
+  background: #00b7ea;
+  color: white;
+  font: 17px/50px Helvetica, Verdana, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3));
+  background: -webkit-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+  background: -o-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+  background: -ms-linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+  background: linear-gradient(top, #00b7ea 0%,#009ec3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+}
+
+b {
+  background: #222;
+  display: block;
+  height: 40px;
+  width: 180px;
+  margin: -50px 0 0 10px;
+  text-align: center;
+  font: 12px/45px Helvetica, Verdana, sans-serif;
+  color: #fff;
+  position: absolute;
+  z-index: -1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.button a, b {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.button:hover .top {
+  margin: -80px 0 0 10px;
+  line-height: 35px;
+}
+
+.button:hover .bottom {
+  margin: -10px 0 0 10px;
+}
+
+.button a:active {
+  background: #00b7ea;
+  background: -moz-linear-gradient(top,  #00b7ea 36%, #009ec3 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(36%,#00b7ea), color-stop(100%,#009ec3));
+  background: -webkit-linear-gradient(top,  #00b7ea 36%,#009ec3 100%);
+  background: -o-linear-gradient(top,  #00b7ea 36%,#009ec3 100%);
+  background: -ms-linear-gradient(top,  #00b7ea 36%,#009ec3 100%);
+  background: linear-gradient(top,  #00b7ea 36%,#009ec3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+}
+
+.button:active .bottom {
+  margin: -20px 0 0 10px;
+}
+
+.button:active .top {
+  margin: -70px 0 0 10px;
+}
+    </style>
+</head>
+<body>
+    <div id="cvContainer" class="cv-container">
+        <header class="cv-header">
+            <h1 id="name"></h1>
+            <div class="contact">
+                <p id="phone"></p>
+                <p id="address"></p>
+                <p id="email"></p>
+                <strong>Job Applied for: </strong><p id="jobTitle"></p>
+            </div>
+        </header>
+        
+        <div class="two-columns">
+
+            <div class="column">
+                <section class="section-title">
+                    <h2>Career Objective</h2>
+                    <p id="career"></p>
+                </section>
+
+                <section class="section-title">
+                    <h2>Education</h2>
+                    <p class="skills" id="education"></p>
+                </section>
+
+                <section class="section-title">
+                    <h2>Skills</h2>
+                    <p class="skills" id="skills"></p>
+                </section>
+
+                <section class="section-title">
+                    <h2>Languages</h2>
+                    <p class="skills" id="languages"></p>
+                </section>
+            </div>
+            
+            <div class="column">
+                <section class="section-title">
+                    <h2>Professional Experience</h2>
+                    <p id="experience"></p>
+                </section>
+
+                <section class="section-title">
+                    <h2>Achievements</h2>
+                    <p id="achievements"></p>
+                </section>
+
+                <section class="section-title">
+                    <h2>Personal Details</h2>
+                    <p id="personalDetails"></p>
+                </section>
+
+                
+            </div>
+
+            
+        </div>
+
+        <section class="section-title"></section>
+            <h2>References</h2>
+            <p>References available upon request.</p>
+        </section>
+        
+    </div>
+
+<div class="button">
+  <a href="#" id="downloadBtn">Download</a>
+  <b class="top">click to download</b>
+  <b class="bottom">1.2MB .zip</b>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        // Fetching data from localStorage
+        document.getElementById('name').textContent = localStorage.getItem('name');
+        document.getElementById('jobTitle').textContent = localStorage.getItem('jobTitle');
+        document.getElementById('address').textContent = localStorage.getItem('address');
+        document.getElementById('phone').textContent = localStorage.getItem('phone');
+        document.getElementById('email').textContent = localStorage.getItem('email');
+        document.getElementById('career').textContent = localStorage.getItem('Career');
+        document.getElementById('education').textContent = localStorage.getItem('education');
+        document.getElementById('skills').textContent = localStorage.getItem('skills');
+        document.getElementById('experience').textContent = localStorage.getItem('experience');
+        document.getElementById('achievements').textContent = localStorage.getItem('achievements');
+        document.getElementById('personalDetails').textContent = localStorage.getItem('personalDetails');
+        document.getElementById('languages').textContent = localStorage.getItem('languages');
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const cvContainer = document.getElementById('cvContainer');
+            html2pdf(cvContainer);
+        });
+    </script>
+</body>
+</html>
